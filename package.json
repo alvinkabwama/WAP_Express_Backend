@@ -23,23 +23,21 @@
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.9.0",
+    "@types/node": "^22.9.1",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
-
   "compilerOptions": {
-    "target": "ES6",                    
-    "module": "commonjs",              
-    "outDir": "./dist",                 
-    "rootDir": "./src",                 
-    "strict": true,                     
-    "esModuleInterop": true,            
-    "skipLibCheck": true,               
-    "resolveJsonModule": true,          
-    "forceConsistentCasingInFileNames": true
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*"],              
-  "exclude": ["node_modules", "dist"] 
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

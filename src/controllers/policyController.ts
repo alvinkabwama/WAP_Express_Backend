@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import fs from "fs";
 import path from "path";
 
-//Policy Interface
+// Policy Interface
 interface Policy {
   id: string;
   title: string;
@@ -13,31 +13,31 @@ interface Policy {
   votes: string[];
 }
 
-//User Interface
+// User Interface
 interface User {
   username: string;
 }
 
 // File paths
-const POLICIES_FILE = path.resolve(process.cwd(), "src", "data", "policies.json");
-const USERS_FILE = path.resolve(process.cwd(), "src", "data", "users.json");
+const POLICIES_FILE: string = path.resolve(process.cwd(), "src", "data", "policies.json");
+const USERS_FILE: string = path.resolve(process.cwd(), "src", "data", "users.json");
 
 // Helper functions to read and write data
 const readPolicies = (): Policy[] => {
   if (!fs.existsSync(POLICIES_FILE)) {
     return [];
   }
-  return JSON.parse(fs.readFileSync(POLICIES_FILE, "utf8"));
+  return JSON.parse(fs.readFileSync(POLICIES_FILE, "utf8")) as Policy[];
 };
 
 const readUsers = (): User[] => {
   if (!fs.existsSync(USERS_FILE)) {
     return [];
   }
-  return JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
+  return JSON.parse(fs.readFileSync(USERS_FILE, "utf8")) as User[];
 };
 
-const writePolicies = (policies: Policy[]) => {
+const writePolicies = (policies: Policy[]): void => {
   fs.writeFileSync(POLICIES_FILE, JSON.stringify(policies, null, 2));
 };
 
@@ -53,16 +53,17 @@ export const getPolicies: RequestHandler<
   unknown // Request body
 > = (req, res, next) => {
   try {
-    const policies = readPolicies();
+    const policies: Policy[] = readPolicies();
     res.json(policies);
   } catch (err) {
     next(err);
   }
 };
 
-
- //POST /policies Adds a new policy.
-
+/**
+ * POST /policies
+ * Adds a new policy.
+ */
 export const addPolicy: RequestHandler<
   unknown, // URL params
   { message: string; policy?: Policy }, // Response type
@@ -70,7 +71,7 @@ export const addPolicy: RequestHandler<
 > = (req, res, next) => {
   try {
     const { title, description, category } = req.body;
-    const username = req.user as string; // Comes from authMiddleware
+    const username: string = req.user as string; // Comes from authMiddleware
 
     if (!title || !description || !category) {
       res.status(400).json({ message: "All fields are required." });
@@ -82,12 +83,10 @@ export const addPolicy: RequestHandler<
       return;
     }
 
-    const users = readUsers();
-    const user = users.find((u) => u.username === username);
-    
+    const users: User[] = readUsers();
+    const user: User | undefined = users.find((u) => u.username === username);
 
-
-    const policies = readPolicies();
+    const policies: Policy[] = readPolicies();
     const newPolicy: Policy = {
       id: (policies.length + 1).toString(),
       title,
@@ -107,23 +106,27 @@ export const addPolicy: RequestHandler<
   }
 };
 
-//GET /policies/all Retrieves all policies with metadata.
- 
+/**
+ * GET /policies/all
+ * Retrieves all policies with metadata.
+ */
 export const getAllPolicies: RequestHandler<
   unknown, // URL params
   { message: string; policies: Policy[] }, // Response type
   unknown // Request body
 > = (req, res, next) => {
   try {
-    const policies = readPolicies();
+    const policies: Policy[] = readPolicies();
     res.status(200).json({ message: "Policies retrieved successfully.", policies });
   } catch (err) {
     next(err);
   }
 };
 
-
-//POST /policies/:id/upvote Upvotes a specific policy.
+/**
+ * POST /policies/:id/upvote
+ * Upvotes a specific policy.
+ */
 export const upvotePolicy: RequestHandler<
   { id: string }, // URL params
   { message: string; policy?: Policy }, // Response type
@@ -131,15 +134,15 @@ export const upvotePolicy: RequestHandler<
 > = (req, res, next) => {
   try {
     const { id } = req.params;
-    const username = req.user as string; // Comes from authMiddleware
+    const username: string = req.user as string; // Comes from authMiddleware
 
     if (!username) {
       res.status(401).json({ message: "Unauthorized." });
       return;
     }
 
-    const policies = readPolicies();
-    const policy = policies.find((p) => p.id === id);
+    const policies: Policy[] = readPolicies();
+    const policy: Policy | undefined = policies.find((p) => p.id === id);
 
     if (!policy) {
       res.status(404).json({ message: "Policy not found." });
@@ -160,9 +163,10 @@ export const upvotePolicy: RequestHandler<
   }
 };
 
-
- //GET /policies/:id Retrieves a specific policy by ID.
-
+/**
+ * GET /policies/:id
+ * Retrieves a specific policy by ID.
+ */
 export const getPolicyById: RequestHandler<
   { id: string }, // URL params
   { message: string; policy?: Policy }, // Response type
@@ -171,8 +175,8 @@ export const getPolicyById: RequestHandler<
   try {
     const { id } = req.params;
 
-    const policies = readPolicies();
-    const policy = policies.find((p) => p.id === id);
+    const policies: Policy[] = readPolicies();
+    const policy: Policy | undefined = policies.find((p) => p.id === id);
 
     if (!policy) {
       res.status(404).json({ message: "Policy not found." });

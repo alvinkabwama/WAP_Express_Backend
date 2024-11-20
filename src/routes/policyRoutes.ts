@@ -1,9 +1,8 @@
 import { Router } from "express";
 import policyController from '../controllers/policyController';
+import { authenticateToken } from "../middlewares/authMiddleWare";
 
-import { authenticateToken,} from "../middlewares/authMiddleWare";
-
-const router = Router();
+const router: Router = Router();
 
 // Route to add a new policy (protected route)
 router.post("/add", authenticateToken, policyController.addPolicy);
@@ -17,4 +16,4 @@ router.post("/upvote/:id", authenticateToken, policyController.upvotePolicy);
 // Route to get a specific policy by ID
 router.get("/:id", policyController.getPolicyById);
 
-export const policiesRoutes = router;
+export const policiesRoutes: Router = router;

@@ -7,11 +7,10 @@ import fs from "fs";
 
 // Load environment variables
 dotenv.config();
-const SECRET_KEY = process.env.SECRET_KEY || 'default-secret-key';
+const SECRET_KEY: string = process.env.SECRET_KEY || 'default-secret-key';
 if (!SECRET_KEY) {
   throw new Error('SECRET_KEY is not defined in the environment variables');
 }
-
 
 // User type definition
 interface User {
@@ -29,10 +28,8 @@ const passwordEncoding = (password: string, salt?: string): string => {
 };
 
 // File paths
-const POLICIES_FILE = path.resolve(process.cwd(), "src", "data", "policies.json");
-const USERS_FILE = path.resolve(process.cwd(), "src", "data", "users.json");
-
-
+const POLICIES_FILE: string = path.resolve(process.cwd(), "src", "data", "policies.json");
+const USERS_FILE: string = path.resolve(process.cwd(), "src", "data", "users.json");
 
 // Helper functions to read and write data
 const readUsers = (): User[] => {
@@ -42,11 +39,9 @@ const readUsers = (): User[] => {
   return JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
 };
 
-
-const writeUsers = (users: User[]) => {
+const writeUsers = (users: User[]): void => {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 };
-
 
 /**
  * POST Signup handler
@@ -64,15 +59,15 @@ export const signup: RequestHandler<
       return;
     }
 
-    //Read users from the system
-    const users = readUsers();
+    // Read users from the system
+    const users: User[] = readUsers();
 
     if (users.some((user) => user.username === username)) {
       res.status(400).json({ message: 'Username already exists.' });
       return;
     }
 
-    const hashedPassword = passwordEncoding(password);
+    const hashedPassword: string = passwordEncoding(password);
     users.push({ username, hashedPassword, firstName, lastName });
     writeUsers(users);
 
@@ -82,9 +77,9 @@ export const signup: RequestHandler<
   }
 };
 
-
- //POST Login handler
- 
+/**
+ * POST Login handler
+ */
 export const login: RequestHandler<
   unknown,
   { message: string; username?: string; token?: string },
@@ -98,18 +93,17 @@ export const login: RequestHandler<
       return;
     }
 
-
-    //Read users from the system
-    const users = readUsers();
-    const user = users.find((u) => u.username === username);
+    // Read users from the system
+    const users: User[] = readUsers();
+    const user: User | undefined = users.find((u) => u.username === username);
     console.log(user);
     if (!user) {
       res.status(401).json({ message: 'Invalid username.' });
       return;
     }
 
-    const [storedSalt, storedHash] = user.hashedPassword.split(':');
-    const hashedPassword = passwordEncoding(password, storedSalt);
+    const [storedSalt, storedHash]: string[] = user.hashedPassword.split(':');
+    const hashedPassword: string = passwordEncoding(password, storedSalt);
 
     if (hashedPassword.split(':')[1] !== storedHash) {
       console.log(hashedPassword);
@@ -117,7 +111,7 @@ export const login: RequestHandler<
       return;
     }
 
-    const token = jwt.sign({ name: `${user.firstName} ${user.lastName}` }, SECRET_KEY, {
+    const token: string = jwt.sign({ name: `${user.firstName} ${user.lastName}` }, SECRET_KEY, {
       expiresIn: '2h',
     });
 
