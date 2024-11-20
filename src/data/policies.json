@@ -1,0 +1,106 @@
+[
+  {
+    "id": "1",
+    "title": "Reduce Food Waste",
+    "description": "The policy aims to address the significant issue of food waste by implementing measures to collect and donate surplus food from the campus cafeteria to local charities and food banks. This initiative will involve partnering with non-profit organizations and ensuring that excess food is safely stored and transported. By reducing food waste, the university can make a positive impact on the environment and the community, supporting those in need while fostering a culture of sustainability among students and staff.",
+    "owner": "Kabwama Alvin",
+    "date": "2024-11-18",
+    "category": "Food",
+    "votes": [
+      "Kabwama Leonald"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Extend Library Hours",
+    "description": "This policy proposes extending the operating hours of the campus library, particularly during the critical finals week. By keeping the library open until midnight, students will have access to a quiet and resourceful space for studying and research. The extended hours will also include additional support services such as technical assistance and academic guidance. This initiative recognizes the importance of providing adequate facilities to help students succeed academically and reduce the stress associated with limited study options.",
+    "owner": "Collin",
+    "date": "2024-11-15",
+    "category": "Library",
+    "votes": []
+  },
+  {
+    "id": "3",
+    "title": "Daily Meditation Sessions",
+    "description": "This proposal advocates for the introduction of daily guided meditation sessions in the student lounge. These sessions, led by experienced instructors, aim to provide students and staff with a calming environment to alleviate stress and improve mental well-being. Each session will include mindfulness exercises, breathing techniques, and short guided meditations tailored for both beginners and experienced participants. By incorporating meditation into the daily schedule, the university can foster a healthier, more balanced campus life and enhance overall productivity.",
+    "owner": "David Saaka",
+    "date": "2024-11-10",
+    "category": "Meditation",
+    "votes": []
+  },
+  {
+    "id": "4",
+    "title": "Subsidized Travel for Internships",
+    "description": "This policy seeks to provide financial support to students participating in internships that require significant travel. The subsidies will cover expenses such as transportation, lodging, and meals for eligible students, making internships more accessible to all, regardless of their financial situation. This initiative not only ensures equal opportunities for students but also encourages participation in professional experiences that can enhance their career prospects. It reflects the university’s commitment to inclusivity and support for student development.",
+    "owner": "admin",
+    "date": "2024-11-05",
+    "category": "Visa & Travel",
+    "votes": []
+  },
+  {
+    "id": "5",
+    "title": "Upgrade Student Lounge",
+    "description": "The policy outlines a plan to renovate and upgrade the student lounge, transforming it into a more comfortable and functional space. The proposed changes include replacing outdated furniture, adding ergonomic seating options, and installing additional computers with high-speed internet access. Furthermore, the lounge will feature multiple charging stations and quiet zones for focused activities. These enhancements aim to create a welcoming environment that caters to the diverse needs of students, fostering relaxation, collaboration, and a sense of community.",
+    "owner": "student2",
+    "date": "2024-11-12",
+    "category": "Students Lounge",
+    "votes": []
+  },
+  {
+    "id": "6",
+    "title": "Policy Title 1 in Environment",
+    "description": "This policy addresses key challenges in the environment sector with a focus on innovation and sustainability. It outlines a comprehensive framework aimed at resolving pressing issues, while enhancing efficiency and inclusivity. The policy emphasizes the adoption of cutting-edge technologies, structured training programs, and financial mechanisms to support its implementation. Key highlights include community outreach initiatives, partnership building between stakeholders, and setting measurable goals to ensure accountability. The policy also advocates for ongoing evaluations to adapt strategies based on emerging needs, ensuring long-term impact and meaningful change for society.",
+    "owner": "Sophia Martinez",
+    "date": "2022-09-14",
+    "category": "Environment",
+    "votes": []
+  },
+  {
+    "id": "7",
+    "title": "Policy Title 2 in Health",
+    "description": "This policy addresses key challenges in the health sector with a focus on innovation and sustainability. It outlines a comprehensive framework aimed at resolving pressing issues, while enhancing efficiency and inclusivity. The policy emphasizes the adoption of cutting-edge technologies, structured training programs, and financial mechanisms to support its implementation. Key highlights include community outreach initiatives, partnership building between stakeholders, and setting measurable goals to ensure accountability. The policy also advocates for ongoing evaluations to adapt strategies based on emerging needs, ensuring long-term impact and meaningful change for society.",
+    "owner": "John Doe",
+    "date": "2020-11-20",
+    "category": "Health",
+    "votes": []
+  },
+  {
+    "id": "8",
+    "title": "Policy Title 3 in Education",
+    "description": "This policy addresses key challenges in the education sector with a focus on innovation and sustainability. It outlines a comprehensive framework aimed at resolving pressing issues, while enhancing efficiency and inclusivity. The policy emphasizes the adoption of cutting-edge technologies, structured training programs, and financial mechanisms to support its implementation. Key highlights include community outreach initiatives, partnership building between stakeholders, and setting measurable goals to ensure accountability. The policy also advocates for ongoing evaluations to adapt strategies based on emerging needs, ensuring long-term impact and meaningful change for society.",
+    "owner": "Amelia Miller",
+    "date": "2021-05-10",
+    "category": "Education",
+    "votes": [
+      "Kabwama Leonald",
+      "kABWAMA AMIN"
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Policy Title 1 in Finance",
+    "description": "This policy aims to address critical issues in the finance sector. By implementing comprehensive strategies, it seeks to improve the overall situation by introducing innovative solutions and ensuring sustainability. The policy will focus on measurable outcomes and involve all stakeholders to achieve its objectives effectively. Additionally, it highlights the need for collaboration between the government and private sectors, while prioritizing community engagement and transparency.",
+    "owner": "Jane Smith",
+    "date": "2023-07-16",
+    "category": "Finance",
+    "votes": []
+  },
+  {
+    "id": "10",
+    "title": "Policy Title 2 in Health",
+    "description": "This policy aims to address critical issues in the health sector. By implementing comprehensive strategies, it seeks to improve the overall situation by introducing innovative solutions and ensuring sustainability. The policy will focus on measurable outcomes and involve all stakeholders to achieve its objectives effectively. Additionally, it highlights the need for collaboration between the government and private sectors, while prioritizing community engagement and transparency.",
+    "owner": "Michael Brown",
+    "date": "2021-03-10",
+    "category": "Health",
+    "votes": []
+  },
+  {
+    "id": "11",
+    "title": "My Policy",
+    "description": "This is my policy",
+    "owner": "kABWAMA AMIN",
+    "date": "2024-11-19",
+    "category": "Environment",
+    "votes": []
+  }
+]

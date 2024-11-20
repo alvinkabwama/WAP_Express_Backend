@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2018",  
+    "typeRoots": ["./node_modules/@types", "./src/types"],                    // Modern JavaScript features
+    "module": "commonjs",                    // Suitable for Node.js
+    "rootDir": "./src",                      // Source directory
+    "outDir": "./dist",                      // Output directory
+    "esModuleInterop": true,                 // Compatibility with CommonJS modules
+    "skipLibCheck": true,                    // Skip checking .d.ts files
+    "strict": true,                          // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true // Enforce consistent casing in imports
+  },
+  "include": ["src/**/*"],                   // Include all files in src directory
+  "exclude": ["node_modules", "dist"]        // Exclude unnecessary files
+}
